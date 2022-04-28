@@ -1,2 +1,5 @@
 car=com.fastcampus.ch3.diCopy1.SuperCar
 engine=com.fastcampus.ch3.diCopy1.Engine
+car=com.fastcampus.ch3.diCopy2.SuperCar
+car=com.fastcampus.ch3.diCopy2.Truck
+engine=com.fastcampus.ch3.diCopy2.Engine

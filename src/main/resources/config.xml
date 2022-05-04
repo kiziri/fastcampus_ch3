@@ -5,5 +5,5 @@
 
     <bean id="car" class="com.fastcampus.ch3.Car"/>
     <bean id="engine" class="com.fastcampus.ch3.Engine"/>
-    <bean id="door" class="com.fastcampus.ch3.Door"/>
+    <bean id="door" class="com.fastcampus.ch3.Door" scope="prototype"/>
 </beans>

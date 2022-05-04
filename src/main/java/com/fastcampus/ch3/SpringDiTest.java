@@ -3,7 +3,48 @@ package com.fastcampus.ch3;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-class Car {}
+import java.util.Arrays;
+
+class Car {
+    String color;
+    int oil;
+    Engine engine;
+    Door[] doors;
+
+    public Car() {} // 기본 생성자를 꼭 생성해두는 습관
+    public Car(String color, int oil, Engine engine, Door[] doors) {
+        this.color = color;
+        this.oil = oil;
+        this.engine = engine;
+        this.doors = doors;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setOil(int oil) {
+        this.oil = oil;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void setDoors(Door[] doors) {
+        this.doors = doors;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "color='" + color + '\'' +
+                ", oil=" + oil +
+                ", engine=" + engine +
+                ", doors=" + Arrays.toString(doors) +
+                '}';
+    }
+}
 class Engine {}
 class Door {}
 
@@ -15,6 +56,11 @@ public class SpringDiTest {
         Car car2 = (Car) ac.getBean(Car.class);  // byType
         Engine engine = (Engine) ac.getBean("engine");
         Door door = (Door) ac.getBean("door");
+
+        car.setColor("red");
+        car.setOil(100);
+        car.setEngine(engine);
+        car.setDoors(new Door[]{ ac.getBean("door", Door.class), (Door)ac.getBean("door")});
 
         System.out.println("car = " + car);
         System.out.println("car2 = " + car2);   // byType

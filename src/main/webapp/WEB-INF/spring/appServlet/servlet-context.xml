@@ -20,8 +20,11 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
-	<context:component-scan base-package="com.fastcampus.ch3" />
+
+	<context:component-scan base-package="com.fastcampus.ch3">
+		<!-- 기타 하위 패키지의 동일한 클래스의 충돌 방지를 위해, SpringDiTest만을 읽기 위해서 -->
+		<context:exclude-filter type="regex" expression="com.fastcampus.ch3.diCopy*.*"/>
+	</context:component-scan>
 	
 	
 	

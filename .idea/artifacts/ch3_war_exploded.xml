@@ -14,6 +14,8 @@
           <element id="module-output" name="ch3" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.29" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
           <element id="library" level="project" name="Maven: com.google.guava:guava:31.1-jre" />
           <element id="library" level="project" name="Maven: com.google.guava:failureaccess:1.0.1" />
           <element id="library" level="project" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" />

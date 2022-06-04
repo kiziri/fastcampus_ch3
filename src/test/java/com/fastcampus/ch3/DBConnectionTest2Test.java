@@ -31,7 +31,7 @@ public class DBConnectionTest2Test {
 
     @Test
     public void selectUserTest() throws Exception {
-        deleteAll();
+        deleteAll();    // 테스트 등록 전 테이블 데이터 전체 삭제를 위해 전체삭제 메서드 호출
         User user = new User("asdf2", "1234", "abc", "aaaa@aaa.com", new Date(), "fb", new Date());
         int rowCnt = insertUser(user);
         User user2 = selectUser("asdf2");
@@ -134,11 +134,7 @@ public class DBConnectionTest2Test {
         } catch (Exception e) {
             conn.rollback();
             e.printStackTrace();
-        } finally {
-
         }
-
-
     }
 
     // 사용자 정보를 user_info테이블에 저장하는 메서드

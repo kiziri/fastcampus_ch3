@@ -1,6 +1,7 @@
 package com.fastcampus.ch3;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -9,9 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
+//@Component - @Controller, @Repository, @Service, @ControllerAdvice
+@Repository
 public class UserDaoImpl implements UserDao {
     @Autowired
     DataSource ds;
+
     final int FAIL = 0;
 
     @Override
@@ -42,7 +46,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User selectUser(String id){
+    public User selectUser(String id) {
         User user = null;
 
         Connection conn = null;
@@ -147,7 +151,7 @@ public class UserDaoImpl implements UserDao {
         return rowCnt;
     }
 
-    @Override
+    // 테스트할 때만 사용하는 메서드라서 private
     public void deleteAll() throws Exception {
         Connection conn = ds.getConnection();
 

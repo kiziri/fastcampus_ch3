@@ -30,7 +30,7 @@ public class UserDaoImplTest {
     }
 
     @Test
-    public void updateUser() {
+    public void updateUser() throws Exception {
         Calendar cal = Calendar.getInstance();
         cal.clear();
         cal.set(2021, 1, 1);

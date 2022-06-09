@@ -1,5 +1,6 @@
 package com.fastcampus.ch3;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,10 @@ import java.util.Date;
 @Controller // ctrl+shift+o 자동 import
 @RequestMapping("/register")
 public class RegisterController {
+    @Autowired
+    UserDao userDao;
+
+    final int FAIL = 0;
 
     @InitBinder
     public void toDate(WebDataBinder binder) {
@@ -39,11 +44,16 @@ public class RegisterController {
 
         // User객체를 검증한 결과 에러가 있으면, registerForm을 이용해서 에러를 보여줘야 함.
         if(result.hasErrors()) {
-            return "registerForm";
+            // 2. DB에 신규회원 정보를 저장
+            int rowCnt = userDao.insertUser(user);
+
+            if(rowCnt!=FAIL) {
+                return "registerInfo";
+            }
+
         }
 
-        // 2. DB에 신규회원 정보를 저장
-        return "registerInfo";
+        return "registerForm";
     }
 
     private boolean isValid(User user) {

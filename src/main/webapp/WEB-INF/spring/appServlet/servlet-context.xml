@@ -13,7 +13,7 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -25,7 +25,7 @@
 		<!-- 기타 하위 패키지의 동일한 클래스의 충돌 방지를 위해, SpringDiTest만을 읽기 위해서 -->
 		<context:exclude-filter type="regex" expression="com.fastcampus.ch3.diCopy*.*"/>
 	</context:component-scan>
-	
-	
+
+	<view-controller path="/" view-name="index"/>
 	
 </beans:beans>
